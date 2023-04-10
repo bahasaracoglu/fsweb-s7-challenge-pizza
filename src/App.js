@@ -3,11 +3,12 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Order from "./components/Order";
-
+import "./App.css";
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className="App">
+        <h1> Teknolojik Yemekler</h1>
         <nav>
           <ul>
             <li>
