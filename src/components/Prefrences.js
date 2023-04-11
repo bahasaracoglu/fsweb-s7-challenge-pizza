@@ -53,15 +53,17 @@ export default function Prefrences() {
     Object.values(formData).filter((value) => value === true).length * 5;
 
   const totalPrice = data.price + additionalPrice;
-  let orderNum = 1;
+
   const changeOrderNum = (event) => {
     event.preventDefault();
-    if (event.target.name === "reduceOrder") {
-      orderNum !== 1 ? (orderNum = orderNum + 1) : (orderNum = orderNum);
-    } else if (event.target.name === "increaseOrder") {
-      orderNum = 2;
-    }
     console.log(event);
+    const { name, id } = event.target;
+    let orderNum = formData.siparisAdeti;
+    if (id === "-") {
+      orderNum > 1 && setFormData({ [name]: orderNum - 1 });
+    } else if (id === "+") {
+      setFormData({ ...formData, [name]: orderNum + 1 });
+    }
   };
 
   return (
@@ -145,15 +147,20 @@ export default function Prefrences() {
           <div>
             <button
               name="siparisAdeti"
-              value={formData.name}
+              value={formData.siparisAdeti}
               onClick={changeOrderNum}
               id="-"
             >
               -
             </button>
-            {orderNum}
-            <button name="siparisAdeti" onClick={changeOrderNum}>
-              +{" "}
+            {formData.siparisAdeti}
+            <button
+              name="siparisAdeti"
+              value={formData.siparisAdeti}
+              onClick={changeOrderNum}
+              id="+"
+            >
+              +
             </button>
           </div>
 
