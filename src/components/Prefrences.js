@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function Prefrences() {
   const data = {
@@ -52,7 +53,7 @@ export default function Prefrences() {
   const additionalPrice =
     Object.values(formData).filter((value) => value === true).length * 5;
 
-  const totalPrice = data.price + additionalPrice;
+  const totalPrice = (data.price + additionalPrice) * formData.siparisAdeti;
 
   const changeOrderNum = (event) => {
     event.preventDefault();
@@ -66,9 +67,14 @@ export default function Prefrences() {
     }
   };
 
+  const history = useHistory();
+  const handleSubmit = () => {
+    history.push("/success");
+  };
+
   return (
     <>
-      <form>
+      <form id="pizza-form" onSubmit={handleSubmit}>
         <div className="boyut">
           <h4>Boyut Seç*</h4>
           {data.content.size.map((size, i) => {
@@ -139,6 +145,7 @@ export default function Prefrences() {
               name="Sipariş Notu"
               type="text"
               value={formData.name}
+              placeholder="Siparişine eklemek istediğin bir not var mı?"
             />
           </label>
         </div>
