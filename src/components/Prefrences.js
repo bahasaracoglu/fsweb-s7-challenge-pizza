@@ -38,6 +38,7 @@ export default function Prefrences() {
 
   const emtyData = {
     //siparisnotu: "Siparişine eklemek istediğin bir not var mı?",
+    siparisAdeti: 1,
   };
   const [formData, setFormData] = useState(emtyData);
   const handleChange = (event) => {
@@ -47,6 +48,21 @@ export default function Prefrences() {
     console.log(event);
   };
   console.log(formData);
+
+  const additionalPrice =
+    Object.values(formData).filter((value) => value === true).length * 5;
+
+  const totalPrice = data.price + additionalPrice;
+  let orderNum = 1;
+  const changeOrderNum = (event) => {
+    event.preventDefault();
+    if (event.target.name === "reduceOrder") {
+      orderNum !== 1 ? (orderNum = orderNum + 1) : (orderNum = orderNum);
+    } else if (event.target.name === "increaseOrder") {
+      orderNum = 2;
+    }
+    console.log(event);
+  };
 
   return (
     <>
@@ -127,17 +143,29 @@ export default function Prefrences() {
 
         <div className="toplam">
           <div>
-            <button>-</button>0<button>+ </button>
+            <button
+              name="siparisAdeti"
+              value={formData.name}
+              onClick={changeOrderNum}
+              id="-"
+            >
+              -
+            </button>
+            {orderNum}
+            <button name="siparisAdeti" onClick={changeOrderNum}>
+              +{" "}
+            </button>
           </div>
 
           <div>
             <div>
               <h4>Sipariş Toplamı</h4>
               <div>
-                Seçimler<span>25.00t</span>
+                Seçimler
+                <span>{additionalPrice}₺</span>
               </div>
               <div>
-                Toplam<span>110.5t</span>
+                Toplam<span>{totalPrice}₺</span>
               </div>
             </div>
             <button>SİPARİŞ VER</button>
