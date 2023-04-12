@@ -9,18 +9,9 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <h1> Teknolojik Yemekler</h1>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/pizza">Order</Link>
-            </li>
-          </ul>
-        </nav>
-
+        <header>
+          <h1> Teknolojik Yemekler</h1>
+        </header>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/pizza" component={Order} />

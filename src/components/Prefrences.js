@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 export default function Prefrences() {
@@ -40,6 +41,7 @@ export default function Prefrences() {
   const emtyData = {
     //siparisnotu: "Siparişine eklemek istediğin bir not var mı?",
     siparisAdeti: 1,
+    fiyat: 0,
   };
   const [formData, setFormData] = useState(emtyData);
   const handleChange = (event) => {
@@ -55,6 +57,10 @@ export default function Prefrences() {
 
   const totalPrice = (data.price + additionalPrice) * formData.siparisAdeti;
 
+  useEffect(() => {
+    setFormData((prevState) => ({ ...prevState, fiyat: totalPrice }));
+  }, [totalPrice]);
+
   const changeOrderNum = (event) => {
     event.preventDefault();
     console.log(event);
@@ -69,6 +75,21 @@ export default function Prefrences() {
 
   const history = useHistory();
   const handleSubmit = () => {
+    axios
+      .post("https://reqres.in/api/orders", formData)
+      .then(function (response) {
+        // handle success
+        console.log(response.data);
+        !response && history.push("/success");
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+
     history.push("/success");
   };
 
@@ -96,6 +117,7 @@ export default function Prefrences() {
           <h4>Hamur Seç*</h4>
           <label>
             <select
+              id="size-dropdown"
               value={formData.name}
               name="Hamur Kalınlığı"
               onChange={handleChange}
@@ -141,6 +163,7 @@ export default function Prefrences() {
           <h4>Sipariş Notu</h4>
           <label>
             <input
+              id="special-text"
               onChange={handleChange}
               name="Sipariş Notu"
               type="text"
@@ -182,7 +205,7 @@ export default function Prefrences() {
                 Toplam<span>{totalPrice}₺</span>
               </div>
             </div>
-            <button>SİPARİŞ VER</button>
+            <button id="order-button">SİPARİŞ VER</button>
           </div>
         </div>
       </form>
