@@ -4,8 +4,8 @@ import Prefrences from "./Prefrences";
 import "./css/Order.css";
 export default function Order() {
   return (
-    <div>
-      <header>
+    <div className="order">
+      <div className="nav-url">
         <nav>
           <li>
             <NavLink to="/">Anasayfa</NavLink>
@@ -15,10 +15,11 @@ export default function Order() {
             <NavLink to="/pizza">Sipariş Oluştur</NavLink>
           </li>
         </nav>
-      </header>
-
-      <Selection />
-      <Prefrences />
+      </div>
+      <div className="form-components">
+        <Selection />
+        <Prefrences />
+      </div>
     </div>
   );
 }

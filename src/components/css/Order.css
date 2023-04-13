@@ -1,0 +1,41 @@
+* {
+  border: 1px solid limegreen;
+  background-color: rgba(116, 116, 116, 0.1);
+}
+body {
+  margin: 0;
+}
+
+p,
+h4,
+a,
+li {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.order {
+}
+
+nav {
+  display: flex;
+  padding-bottom: 1.5rem;
+  background-color: #ce2829;
+  justify-content: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: #faf7f2;
+  text-decoration: none;
+}
+
+.form-components {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 30%;
+  background-color: white;
+}

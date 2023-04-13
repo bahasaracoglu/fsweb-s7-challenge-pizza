@@ -13,8 +13,7 @@ export default function Home() {
       <div className="home-main">
         <h2> KOD ACIKTIRIR PIZZA, DOYURUR</h2>
         <button className="order-button" onClick={() => toOrder()}>
-          {" "}
-          ACIKTIM{" "}
+          ACIKTIM
         </button>
       </div>
       <div className="banner">

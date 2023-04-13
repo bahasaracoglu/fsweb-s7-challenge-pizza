@@ -94,7 +94,7 @@ export default function Prefrences() {
   };
 
   return (
-    <>
+    <div className="form">
       <form id="pizza-form" onSubmit={handleSubmit}>
         <div className="boyut">
           <h4>Boyut Seç*</h4>
@@ -209,6 +209,6 @@ export default function Prefrences() {
           </div>
         </div>
       </form>
-    </>
+    </div>
   );
 }

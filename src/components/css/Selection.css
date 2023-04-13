@@ -1,0 +1,32 @@
+.selection,
+p,
+h3 {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5rem;
+}
+
+.selection h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.selection-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.price {
+  display: flex;
+  flex: 2.5;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.rate {
+  gap: 5rem;
+  display: flex;
+  flex-direction: row;
+}
