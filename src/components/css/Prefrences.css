@@ -32,6 +32,13 @@ h4,
   padding: 0.8rem;
   font-weight: bold;
   font-size: 1.5rem;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.boyut label,
+.hamur option {
+  font-weight: bold;
+  color: #5f5f5f;
 }
 
 label {
@@ -51,6 +58,11 @@ label {
   flex-direction: column;
   flex-wrap: wrap;
   height: 70%;
+}
+
+.malzemeler p {
+  font-size: 1rem;
+  color: #5f5f5f;
 }
 
 .malzemeler label {
@@ -81,6 +93,7 @@ label {
   padding: 1.8rem;
   justify-content: space-between;
   align-items: center;
+  border-top: 1.5px solid #5f5f5f2c;
 }
 
 .siparis-adeti {
@@ -95,6 +108,9 @@ label {
   width: 3rem;
   border-radius: 0.5rem;
   background-color: #fdc913;
+  border-color: #fdc913;
+  border-radius: 0.5rem;
+  border-style: none;
 }
 
 .siparis-toplami {
@@ -103,12 +119,30 @@ label {
 }
 .siparis-toplam-info {
   padding: 2rem;
+
+  border-radius: 0.5rem;
+  border: 1.5px solid #5f5f5f2c;
+}
+
+.siparis-notu-input {
+  border-radius: 0.3rem;
+  border: 1.5px solid #5f5f5f2c;
 }
 
 .secimler-fiyat,
 .toplam-fiyat {
   display: flex;
   padding: 0.8rem;
+  justify-content: space-between;
+  font-weight: bold;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.5rem;
+}
+.toplam-fiyat {
+  color: #ce2829;
+}
+.secimler-fiyat {
+  color: #5f5f5f;
 }
 
 #order-button {
@@ -117,14 +151,17 @@ label {
   font-weight: 600;
   background-color: #fdc913;
   padding: 0;
-  border-width: 2px;
+  border-color: #fdc913;
   border-radius: 0.5rem;
+  border-style: none;
 }
 
 .siparis-adeti h5 {
   display: flex;
-  font-size: 1.5rem;
-  width: 20%;
+  font-size: 1.2rem;
+  width: 25%;
   justify-content: center;
   align-items: center;
+  border-radius: 0.3rem;
+  border: 1.5px solid #5f5f5f2c;
 }

@@ -8,9 +8,11 @@ export default function Order() {
       <div className="nav-url">
         <nav>
           <li>
-            <NavLink to="/">Anasayfa</NavLink>
+            <NavLink to="/">Anasayfa-</NavLink>
           </li>
-          <li>Seçenekler</li>
+          <li>
+            <a>Seçenekler-</a>
+          </li>
           <li>
             <NavLink to="/pizza">Sipariş Oluştur</NavLink>
           </li>

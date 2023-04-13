@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./css/Prefrences.css";
+import * as yup from "yup";
 
 export default function Prefrences() {
   const data = {
@@ -30,7 +31,7 @@ export default function Prefrences() {
         "Jalepeno",
         "Sarımsak",
         "Biber",
-        "Sucuk",
+
         "Ananas",
         "Kabak",
       ],
@@ -40,33 +41,53 @@ export default function Prefrences() {
   };
 
   const emtyData = {
-    //siparisnotu: "Siparişine eklemek istediğin bir not var mı?",
-    siparisAdeti: 1,
-    fiyat: 0,
+    Peperoni: false,
+    Sosis: false,
+    "Kanada Jambonu": false,
+    "Tavuk Izgara": false,
+    Soğan: false,
+    Domates: false,
+    Mısır: false,
+    Sucuk: false,
+    Jalepeno: false,
+    Sarımsak: false,
+    Biber: false,
+
+    Ananas: false,
+    Kabak: false,
+
+    SiparisAdeti: 1,
+    Fiyat: 0,
+    Boyut: "",
+    "Hamur Kalınlığı": "",
+
+    "Sipariş Notu": "",
   };
+
   const [formData, setFormData] = useState(emtyData);
+
   const handleChange = (event) => {
     const { name, type, value, checked } = event.target;
     const updatedInfo = type === `checkbox` ? checked : value;
     setFormData({ ...formData, [name]: updatedInfo });
-    console.log(event);
+    //console.log(event);
   };
-  console.log(formData);
+  console.log("formData", formData);
 
   const additionalPrice =
     Object.values(formData).filter((value) => value === true).length * 5;
 
-  const totalPrice = (data.price + additionalPrice) * formData.siparisAdeti;
+  const totalPrice = (data.price + additionalPrice) * formData.SiparisAdeti;
 
   useEffect(() => {
-    setFormData((prevState) => ({ ...prevState, fiyat: totalPrice }));
+    setFormData((prevState) => ({ ...prevState, Fiyat: totalPrice }));
   }, [totalPrice]);
 
   const changeOrderNum = (event) => {
     event.preventDefault();
     console.log(event);
     const { name, id } = event.target;
-    let orderNum = formData.siparisAdeti;
+    let orderNum = formData.SiparisAdeti;
     if (id === "-") {
       orderNum > 1 && setFormData({ [name]: orderNum - 1 });
     } else if (id === "+") {
@@ -80,7 +101,7 @@ export default function Prefrences() {
       .post("https://reqres.in/api/orders", formData)
       .then(function (response) {
         // handle success
-        console.log(response.data);
+        console.log("Sipariş Özeti:", response.data);
         !response && history.push("/success");
       })
       .catch(function (error) {
@@ -104,9 +125,9 @@ export default function Prefrences() {
               return (
                 <label key={i}>
                   <input
-                    checked={formData.boyut === size}
+                    checked={formData.Boyut === size}
                     onChange={handleChange}
-                    name="boyut"
+                    name="Boyut"
                     type="radio"
                     value={size}
                   />
@@ -154,8 +175,6 @@ export default function Prefrences() {
                     name={malzeme}
                     type="checkbox"
                     value={formData.value}
-                    /*checked={form.isGoing}
-            onChange={handleChange}*/
                   />
                   {malzeme}
                 </label>
@@ -168,6 +187,7 @@ export default function Prefrences() {
           <h4>Sipariş Notu</h4>
           <label>
             <input
+              className="siparis-notu-input"
               id="special-text"
               onChange={handleChange}
               name="Sipariş Notu"
@@ -183,17 +203,17 @@ export default function Prefrences() {
             <button
               className="azalt-butonu"
               name="siparisAdeti"
-              value={formData.siparisAdeti}
+              value={formData.SiparisAdeti}
               onClick={changeOrderNum}
               id="-"
             >
               -
             </button>
-            <h5> {formData.siparisAdeti}</h5>
+            <h5> {formData.SiparisAdeti}</h5>
             <button
               className="artir-butonu"
-              name="siparisAdeti"
-              value={formData.siparisAdeti}
+              name="SiparisAdeti"
+              value={formData.SiparisAdeti}
               onClick={changeOrderNum}
               id="+"
             >
