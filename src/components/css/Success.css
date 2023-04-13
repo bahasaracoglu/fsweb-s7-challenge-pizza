@@ -1,0 +1,14 @@
+.success {
+  background-color: #ce2829;
+  height: 75.9vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.text-container {
+  width: 29%;
+  padding-bottom: 11rem;
+  color: #faf7f2;
+}
