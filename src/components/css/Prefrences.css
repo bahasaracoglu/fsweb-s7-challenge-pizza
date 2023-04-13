@@ -1,0 +1,130 @@
+.form {
+  display: flex;
+}
+#pizza-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.boyut-hamur-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 30%;
+}
+
+.boyut {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.boyut,
+h4,
+.hamur,
+.malzemeler,
+.siparis-notu {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+label {
+  padding: 1rem;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.malzemeler {
+  padding: 1.8rem;
+  height: 30%;
+}
+
+.malzemeler-container {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 70%;
+}
+
+.malzemeler label {
+  padding: 1rem 0.7rem;
+  display: flex;
+  width: 10rem;
+  font-weight: bold;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.siparis-notu {
+  padding: 1.8rem;
+}
+
+.siparis-notu label {
+  padding: 0;
+}
+
+#special-text {
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.toplam {
+  display: flex;
+  padding: 1.8rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.siparis-adeti {
+  align-self: flex-start;
+  display: flex;
+  flex: 1;
+}
+
+.azalt-butonu,
+.artir-butonu {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 0.5rem;
+  background-color: #fdc913;
+}
+
+.siparis-toplami {
+  flex: 3;
+  border-radius: 0.5rem;
+}
+.siparis-toplam-info {
+  padding: 2rem;
+}
+
+.secimler-fiyat,
+.toplam-fiyat {
+  display: flex;
+  padding: 0.8rem;
+}
+
+#order-button {
+  width: 100%;
+  height: 4rem;
+  font-weight: 600;
+  background-color: #fdc913;
+  padding: 0;
+  border-width: 2px;
+  border-radius: 0.5rem;
+}
+
+.siparis-adeti h5 {
+  display: flex;
+  font-size: 1.5rem;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
+}

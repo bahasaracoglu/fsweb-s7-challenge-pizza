@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./css/Prefrences.css";
 
 export default function Prefrences() {
   const data = {
@@ -96,70 +97,74 @@ export default function Prefrences() {
   return (
     <div className="form">
       <form id="pizza-form" onSubmit={handleSubmit}>
-        <div className="boyut">
-          <h4>Boyut Seç*</h4>
-          {data.content.size.map((size, i) => {
-            return (
-              <label key={i}>
-                <input
-                  checked={formData.boyut === size}
-                  onChange={handleChange}
-                  name="boyut"
-                  type="radio"
-                  value={size}
-                />
-                {size}
-              </label>
-            );
-          })}
-        </div>
-        <div className="hamur">
-          <h4>Hamur Seç*</h4>
-          <label>
-            <select
-              id="size-dropdown"
-              value={formData.name}
-              name="Hamur Kalınlığı"
-              onChange={handleChange}
-            >
-              <option value="">Hamur Kalınlığı</option>
-              {data.content.dough.map((dough, i) => {
-                return (
-                  <option
-                    key={i}
+        <div className="boyut-hamur-container">
+          <div className="boyut">
+            <h4>Boyut Seç*</h4>
+            {data.content.size.map((size, i) => {
+              return (
+                <label key={i}>
+                  <input
+                    checked={formData.boyut === size}
                     onChange={handleChange}
-                    name="hamur"
-                    value={dough}
-                    type="dropdown"
-                  >
-                    {dough}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
+                    name="boyut"
+                    type="radio"
+                    value={size}
+                  />
+                  {size}
+                </label>
+              );
+            })}
+          </div>
+          <div className="hamur">
+            <h4>Hamur Seç*</h4>
+            <label>
+              <select
+                id="size-dropdown"
+                value={formData.name}
+                name="Hamur Kalınlığı"
+                onChange={handleChange}
+              >
+                <option value="">Hamur Kalınlığı</option>
+                {data.content.dough.map((dough, i) => {
+                  return (
+                    <option
+                      key={i}
+                      onChange={handleChange}
+                      name="hamur"
+                      value={dough}
+                      type="dropdown"
+                    >
+                      {dough}
+                    </option>
+                  );
+                })}
+              </select>
+            </label>
+          </div>
         </div>
         <div className="malzemeler">
           <h4>Ek Malzemeler</h4>
           <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
-          {data.content.additional.map((malzeme, i) => {
-            return (
-              <label key={i}>
-                <input
-                  onChange={handleChange}
-                  name={malzeme}
-                  type="checkbox"
-                  value={formData.value}
-                  /*checked={form.isGoing}
+          <div className="malzemeler-container">
+            {data.content.additional.map((malzeme, i) => {
+              return (
+                <label key={i}>
+                  <input
+                    onChange={handleChange}
+                    name={malzeme}
+                    type="checkbox"
+                    value={formData.value}
+                    /*checked={form.isGoing}
             onChange={handleChange}*/
-                />
-                {malzeme}
-              </label>
-            );
-          })}
+                  />
+                  {malzeme}
+                </label>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="siparisNotu">
+        <div className="siparis-notu">
           <h4>Sipariş Notu</h4>
           <label>
             <input
@@ -174,8 +179,9 @@ export default function Prefrences() {
         </div>
 
         <div className="toplam">
-          <div>
+          <div className="siparis-adeti">
             <button
+              className="azalt-butonu"
               name="siparisAdeti"
               value={formData.siparisAdeti}
               onClick={changeOrderNum}
@@ -183,8 +189,9 @@ export default function Prefrences() {
             >
               -
             </button>
-            {formData.siparisAdeti}
+            <h5> {formData.siparisAdeti}</h5>
             <button
+              className="artir-butonu"
               name="siparisAdeti"
               value={formData.siparisAdeti}
               onClick={changeOrderNum}
@@ -194,15 +201,16 @@ export default function Prefrences() {
             </button>
           </div>
 
-          <div>
-            <div>
+          <div className="siparis-toplami">
+            <div className="siparis-toplam-info">
               <h4>Sipariş Toplamı</h4>
-              <div>
-                Seçimler
+              <div className="secimler-fiyat">
+                <h5> Seçimler</h5>
                 <span>{additionalPrice}₺</span>
               </div>
-              <div>
-                Toplam<span>{totalPrice}₺</span>
+              <div className="toplam-fiyat">
+                <h5> Toplam</h5>
+                <span>{totalPrice}₺</span>
               </div>
             </div>
             <button id="order-button">SİPARİŞ VER</button>

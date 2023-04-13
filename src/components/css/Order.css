@@ -19,8 +19,13 @@ li {
 nav {
   display: flex;
   padding-bottom: 1.5rem;
+  margin: 0 30%;
+}
+
+.nav-url {
+  display: flex;
+
   background-color: #ce2829;
-  justify-content: center;
 }
 
 li {
