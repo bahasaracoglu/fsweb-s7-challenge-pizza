@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./css/Prefrences.css";
-import * as yup from "yup";
 
 export default function Prefrences() {
   const data = {
@@ -72,8 +71,10 @@ export default function Prefrences() {
     setFormData({ ...formData, [name]: updatedInfo });
     //console.log(event);
   };
+
   console.log("formData", formData);
 
+  //price kısmı---------------------------------------------------------------
   const additionalPrice =
     Object.values(formData).filter((value) => value === true).length * 5;
 
@@ -83,9 +84,11 @@ export default function Prefrences() {
     setFormData((prevState) => ({ ...prevState, Fiyat: totalPrice }));
   }, [totalPrice]);
 
+  //price kısmı---------------------------------------------------------------
+
   const changeOrderNum = (event) => {
     event.preventDefault();
-    console.log(event);
+    //console.log(event);
     const { name, id } = event.target;
     let orderNum = formData.SiparisAdeti;
     if (id === "-") {
@@ -202,7 +205,7 @@ export default function Prefrences() {
           <div className="siparis-adeti">
             <button
               className="azalt-butonu"
-              name="siparisAdeti"
+              name="SiparisAdeti"
               value={formData.SiparisAdeti}
               onClick={changeOrderNum}
               id="-"

@@ -11,7 +11,7 @@ export default function Order() {
             <NavLink to="/">Anasayfa-</NavLink>
           </li>
           <li>
-            <a>Seçenekler-</a>
+            <a href="">Seçenekler-</a>
           </li>
           <li>
             <NavLink to="/pizza">Sipariş Oluştur</NavLink>
