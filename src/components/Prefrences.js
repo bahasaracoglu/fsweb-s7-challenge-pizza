@@ -40,6 +40,8 @@ export default function Prefrences() {
   };
 
   const emtyData = {
+    Boyut: "",
+    "Hamur Kalınlığı": "",
     Peperoni: false,
     Sosis: false,
     "Kanada Jambonu": false,
@@ -51,15 +53,10 @@ export default function Prefrences() {
     Jalepeno: false,
     Sarımsak: false,
     Biber: false,
-
     Ananas: false,
     Kabak: false,
-
     SiparisAdeti: 1,
     Fiyat: 0,
-    Boyut: "",
-    "Hamur Kalınlığı": "",
-
     "Sipariş Notu": "",
   };
 
@@ -99,13 +96,13 @@ export default function Prefrences() {
   };
 
   const history = useHistory();
+
   const handleSubmit = () => {
     axios
       .post("https://reqres.in/api/orders", formData)
       .then(function (response) {
         // handle success
         console.log("Sipariş Özeti:", response.data);
-        !response && history.push("/success");
       })
       .catch(function (error) {
         // handle error
